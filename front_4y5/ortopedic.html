@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Front 4 y 5</title>
+<meta charset="utf-8">
+<meta name="description" content="Este es un documento HTML5">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="misestilos.css">
+<script type="text/javascript" src="js/ortopedic.js"></script>
+</head>
+
+<body>
+    <header id="cabeceralogo">
+    <div>
+    <h1>ortopedic </h1>
+    </div>
+    </header>
+    <nav id="menuprincipal">
+    <div>
+    <ul>
+    <li><a href="index.html">Principal</a></li>
+    <li><a href="reportes.html">reportes</a></li>
+    <li><a href="category.html">category</a></li>
+    <li><a href="client.html">client</a></li>
+    <li><a href="message.html">message</a></li>
+    <li><a href="reservation.html">reservation</a></li>
+    <li><a href="ortopedic.html">ortopedic</a></li>
+    </ul>
+    </div>
+    </nav>
+
+    <label>NAME:</label>
+    <input class="controlOrtopedic" type="text" id="name2" placeholder="escribe el nombre" ><br>
+    <label>MODEL:</label>
+    <input class="controlOrtopedic" type="text" id="brand" placeholder="escribe la marca" ><br>
+    <label>YEAR:</label>
+    <input class="controlOrtopedic" type="number" id="year" placeholder="escribe solo el año"><br>
+    <label>DESCRIPTION:</label>
+    <input class="controlOrtopedic" type="text" id="description2" placeholder="escribe la descripcion" ><br>
+    <select id="select-category"></select>
+    <script type="text/javascript">
+        window.onload = autoInicioCategoria();
+    </script>
+
+<div id="miListaOrtopedic"></div>
+<button onclick="traerInformacionOrtopedic()" > Consultar ortopedic</button>
+
+<button onclick="agregarOrtopedic()">Guardar ortopedic</button>
+
+</body>
+</html>

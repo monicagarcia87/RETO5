@@ -1,0 +1,179 @@
+
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+/**
+* Class Ortopedic
+*/
+@Entity
+@Table(name = "ortopedic")
+public class Ortopedic implements Serializable{
+    /**
+     * Atributo idOrt
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idOrt;
+    /**
+     * Atributo name
+     */
+    private String name;
+    /**
+     * Atributo brand
+     */
+    private String brand;
+    /**
+     * Atributo year
+     */
+    private Integer year;
+    /**
+     * Atributo description
+     */
+    private String description;
+    
+    /**
+     * Atributo category
+     */
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    @JsonIgnoreProperties("ortopedics")
+    private Category category;
+    
+    /**
+     * Atributo messages
+     */
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "ortopedic")
+    @JsonIgnoreProperties({"ortopedic", "client"})
+    private List<Message> messages;
+    
+    /**
+     * Atributo reservations
+     */
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "ortopedic")
+    @JsonIgnoreProperties("ortopedic")
+    private List<Reservation> reservations;
+
+    /**
+     * @return idOrt
+     */
+    public Integer getId() {
+        return idOrt;
+    }
+
+    /**
+     * @param idOrt 
+     */
+    public void setId(Integer idOrt) {
+        this.idOrt = idOrt;
+    }
+
+    /**
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name 
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return brand
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * @param brand 
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * @return year
+     */
+    public Integer getYear() {
+        return year;
+    }
+
+    /**
+     * @param year 
+     */
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    /**
+     * @return description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * 
+     * @param description 
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return category
+     */
+    public Category getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category 
+     */
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    /**
+     * @return messages
+     */
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    /**
+     * @param messages 
+     */
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    /**
+     * @return reservations
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    /**
+     * @param reservations 
+     */
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+}
